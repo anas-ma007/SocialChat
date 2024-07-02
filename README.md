@@ -1,4 +1,4 @@
-MERN Stack Chat Application
+MERN Stack Chat Application (🌐 SocialChat 🌐)
 Status: Ongoing Project
 
 This repository contains a chat application built using the MERN stack. The project utilizes React and Tailwind for the frontend, Node.js and Express for the backend, Mongoose for MongoDB interactions, Socket.io for real-time communication, and JWT for authentication.
