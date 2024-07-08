@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { IoCloseCircleOutline } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import uploadFile from '../helpers/uploadFile';
 import { BACKEND_URL } from '../utils/constants';
 import axios from 'axios';
@@ -10,17 +10,25 @@ const RegisterPage = () => {
   const [data, setData] = useState({
     name: "",
     email: "",
+    mobile : "",
     password: "",
     profile_pic: ""
   })
 
   const [uploadPhoto, setUploadPhoto] = useState("")
+  const navigate = useNavigate()
 
   const handleUploadPhoto = async (e) => {
     let file = e.target.files[0]
     const uploadPhoto = await uploadFile(file)
-    // console.log(uploadPhoto, "upload photo in handleUploadPhoto methd");
+    console.log(uploadPhoto?.url, "upload photo url in handleUploadPhoto methd");
     setUploadPhoto(file)
+    setData((prev)=>{
+      return{
+        ...prev,
+        profile_pic : uploadPhoto?.url
+      }
+    })
   }
 
 
@@ -46,15 +54,19 @@ const RegisterPage = () => {
     try {
       const response = await axios.post(URL, data)
       console.log(response, "reponse in user register success ");
-      
+
       toast.success(response?.data?.message)
       if (response?.data?.success) {
         setData({
           name: "",
           email: "",
+          mobile : "",
           password: "",
           profile_pic: ""
+          
         })
+        // handleClearPhoto()
+        navigate("/email")
       }
 
     } catch (error) {
@@ -92,6 +104,19 @@ const RegisterPage = () => {
               name='email'
               placeholder='Enter your email'
               value={data.email}
+              onChange={handleOnChange}
+              required
+            />
+          </div>
+          <div className='py-2 flex flex-col gap-2'>
+            <label className='font-semibold' htmlFor="mobile"> Mobile : </label>
+            <input
+              className='bg-slate-200 px-5 py-1 rounded shadow-2xl focus:bg-slate-300 focus:outline-primary'
+              type='string'
+              id='mobile'
+              name='mobile'
+              placeholder='Enter your Mobiel no '
+              value={data.mobile}
               onChange={handleOnChange}
               required
             />
