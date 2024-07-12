@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { BACKEND_URL } from '../utils/constants'
 import toast from 'react-hot-toast'
 import Avatar from '../components/Avatar'
+import { useDispatch } from 'react-redux'
+import { setToken } from '../redux/userSlice'
 
 
 const CheckPassword = () => {
@@ -12,6 +14,11 @@ const CheckPassword = () => {
   })
   const navigate = useNavigate()
   const location = useLocation()
+  const dispatch = useDispatch()
+
+
+
+
   const emailIdUserData = location?.state?.data || {}
   useEffect(() => {
     if (!emailIdUserData?.name) {
@@ -38,13 +45,23 @@ const CheckPassword = () => {
     const URL = `${BACKEND_URL}/api/password`
     console.log(URL, "URL log");
     try {
-      const response = await axios.post(URL, {
-        userId: emailIdUserData?._id,
-        password: data?.password
+      const response = await axios({
+        method: "post",
+        url: URL,
+        data: {
+          userId: emailIdUserData?._id,
+          password: data?.password
+        },
+        withCredentials: true
       })
 
+
+
       toast.success(response?.data?.message)
+
       if (response?.data?.success) {
+        dispatch(setToken(response?.data?.token))
+        localStorage.setItem('token', response?.data?.token)
         setData({
           password: "",
         })
@@ -81,7 +98,7 @@ const CheckPassword = () => {
           </div>
 
           <button className='bg-primary text-white font-semibold text-lg hover:bg-secondary px-4 py-2 w-full max-w-sm md:max-w-md rounded mt-2 tracking-wider'>
-            Let's go
+            Login
           </button>
         </form>
         <p className='my-3 text-center font-semibold hover:underline'> <Link to={"/forgot-password"} className='hover:underline hover:text-primary '>Forgot Passwrod ?</Link> </p>
