@@ -54,13 +54,13 @@ const CheckEmail = () => {
         <p className='text-xl text-slate-800 font-medium font-serif'>Welcome to Social Chat..!</p>
         <form className='mt-2' action="" onSubmit={handleSubmit}>
           <div className='py-2 flex flex-col gap-2'>
-            <label className='font-semibold' htmlFor="email"> Email : </label>
+            {/* <label className='font-semibold' htmlFor="email"> Email : </label> */}
             <input
-              className='bg-slate-200 px-5 py-1 rounded shadow-2xl focus:bg-slate-300 focus:outline-primary'
+              className='bg-slate-200 px-5 py-2 mb-3 rounded shadow-2xl focus:bg-slate-300 focus:outline-primary'
               type='email'
               id='email'
               name='email'
-              placeholder='Enter your email'
+              placeholder='Enter your email here'
               value={data.email}
               onChange={handleOnChange}
               required

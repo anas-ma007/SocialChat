@@ -1,7 +1,10 @@
-import { FaRegUserCircle } from 'react-icons/fa'
+import { TbPasswordFingerprint } from "react-icons/tb";
+
 
 const Avatar = ({ userId, name, imageUrl, width, height }) => {
     let avatarName = ""
+
+    //eg. user name = muhmd anas --------> MA
     if (name) {
         const splitName = name?.split(" ")
         if (splitName.length > 1) {
@@ -35,12 +38,12 @@ const Avatar = ({ userId, name, imageUrl, width, height }) => {
                 <img src={imageUrl} alt={name} width={width} height={height} className='overflow-hidden rounded-full' />
             ) : (
                 name ? (
-                    <div style={{ width: width+"px", height: height+"px" }} className='overflow-hidden rounded-full flex items-center justify-center'>
+                    <div style={{ width: width+"px", height: height+"px" }} className='overflow-hidden rounded-full flex items-center from-stone-600 justify-center'>
                         {avatarName}
                     </div>
                 ) : (
                     <div className='m-auto w-fit mb-3 '>
-                        <FaRegUserCircle size={90} />
+                        <TbPasswordFingerprint size={80} />
                     </div>
                 )
             )
