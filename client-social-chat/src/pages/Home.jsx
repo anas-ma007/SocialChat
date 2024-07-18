@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { BACKEND_URL } from '../utils/constants'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, setUser } from '../redux/userSlice'
+import SiderBar from '../components/SiderBar'
 
 const Home = () => {
 
@@ -24,12 +25,12 @@ const Home = () => {
       })
 
       dispatch(setUser(response?.data?.data))
-      
-      if(response?.data?.logout){
+
+      if (response?.data?.logout) {
         dispatch(logout())
         navigate("/email")
       }
-      // console.log(response, "login user details in home page get user details method");
+      console.log(response?.data?.data, "login user details in home page get user details method");
 
     } catch (error) {
       console.log("Error in Home fetchUser details", error);
@@ -41,12 +42,10 @@ const Home = () => {
   }, [])
 
   return (
-    <div>
-
-
-<section>
-  side
-</section>
+    <div className='grid grid-cols-[320px,1fr] h-screen max-h-screen' >
+      <section className='bg-white'>
+        <SiderBar/>
+      </section>
       {/* message component  */}
       <section>
         <Outlet />

@@ -1,4 +1,6 @@
-import { TbPasswordFingerprint } from "react-icons/tb";
+// import { TbPasswordFingerprint } from "react-icons/tb";
+import { RxAvatar } from "react-icons/rx";
+
 
 
 const Avatar = ({ userId, name, imageUrl, width, height }) => {
@@ -42,8 +44,8 @@ const Avatar = ({ userId, name, imageUrl, width, height }) => {
                         {avatarName}
                     </div>
                 ) : (
-                    <div className='m-auto w-fit mb-3 '>
-                        <TbPasswordFingerprint size={80} />
+                    <div className='m-auto mb-3 '>
+                        <RxAvatar size={80} />
                     </div>
                 )
             )
