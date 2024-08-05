@@ -4,7 +4,7 @@ import { PiUserCirclePlus } from "react-icons/pi";
 import { NavLink } from "react-router-dom";
 import { BiLogOut } from "react-icons/bi";
 import Avatar from "./Avatar";
-// import { RxAvatar } from "react-icons/rx";
+import { RxAvatar } from "react-icons/rx";
 import { useSelector } from 'react-redux'
 import { useState } from "react";
 import EditUserDetails from "./EditUserDetails";
@@ -13,9 +13,13 @@ import EditUserDetails from "./EditUserDetails";
 
 
 const SiderBar = () => {
+
     const user = useSelector(state => state?.user)
+    console.log(user, "user log check mobile number");
     const [editUserOpen, setEditUserOpen] = useState(false)
-    console.log(user, "user in sidebar");
+
+    
+    // console.log(user, "user in sidebar");
     return (
         <div className='w-full h-full '>
             <div className='bg-slate-200 w-12 h-full rounded-tr-xl rounded-br-xl py-8  text-gray-700 flex flex-col justify-between'>
@@ -31,9 +35,9 @@ const SiderBar = () => {
                 <div >
 
 
-                    <button onClick={()=>setEditUserOpen(true)} title={user?.name} className="w-12 h-12 mb-6 flex justify-center items-center cursor-pointer hover:bg-slate-300 rounded-lg">
+                    <button onClick={()=>setEditUserOpen(true)} title={user?.name} className="w-12 h-12 mb-6 flex justify-center items-center cursor-pointer z-40 hover:bg-slate-300 rounded-lg">
                         {
-                            user.profile_pic ? <Avatar  name={user?.name} width={90} height={90} imageUrl={user?.profile_pic} /> :  <Avatar  name={user?.name} width={80} height={80} /> 
+                         user.profile_pic && user.name ? ( user.profile_pic  ? <Avatar  name={user?.name} width={90} height={90} imageUrl={user?.profile_pic} /> :  <Avatar  name={user?.name} width={80} height={80} /> ) : ( <RxAvatar size={45}/>)
                         }
                     </button>
 
@@ -47,7 +51,7 @@ const SiderBar = () => {
 
             {
                 editUserOpen &&(
-                    <EditUserDetails onClose={()=>setEditUserOpen(false) } data={user} />
+                    <EditUserDetails onClose={()=>setEditUserOpen(false) } user={user} />
                 )
             }
         </div>
