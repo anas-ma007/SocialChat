@@ -18,8 +18,6 @@ const SiderBar = () => {
     console.log(user, "user log check mobile number");
     const [editUserOpen, setEditUserOpen] = useState(false)
 
-    
-    // console.log(user, "user in sidebar");
     return (
         <div className='w-full h-full '>
             <div className='bg-slate-200 w-12 h-full rounded-tr-xl rounded-br-xl py-8  text-gray-700 flex flex-col justify-between'>
