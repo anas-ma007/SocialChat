@@ -3,15 +3,15 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
 
 const App = () => {
-  const navigate = useNavigate()
-  const location = useLocation()
+  // const navigate = useNavigate()
+  // const location = useLocation()
 
-  const emailIdUserData = location?.state?.data || {}
-  useEffect(() => {
-    if (!emailIdUserData?.name) {
-      navigate("/email")
-    }
-  }, [])
+  // const emailIdUserData = location?.state?.data || {}
+  // useEffect(() => {
+  //   if (!emailIdUserData?.name) {
+  //     navigate("/email")
+  //   }
+  // }, [])
 
 
   return (

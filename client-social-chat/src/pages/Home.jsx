@@ -13,12 +13,11 @@ const Home = () => {
 
 
   const user = useSelector(state => state.user)
-  console.log(user, "user from home page use selector");
+  // console.log(user, "user from home page use selector");
 
   const fetchUserDetails = async () => {
     try {
       const URL = `${BACKEND_URL}/api/user-details`
-
       const response = await axios({
         url: URL,
         withCredentials: true
@@ -30,7 +29,7 @@ const Home = () => {
         dispatch(logout())
         navigate("/email")
       }
-      console.log(response?.data?.data, "login user details in home page get user details method");
+      // console.log(response?.data?.data, "login user details in home page get user details method");
 
     } catch (error) {
       console.log("Error in Home fetchUser details", error);

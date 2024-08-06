@@ -15,7 +15,6 @@ import EditUserDetails from "./EditUserDetails";
 const SiderBar = () => {
 
     const user = useSelector(state => state?.user)
-    console.log(user, "user log check mobile number");
     const [editUserOpen, setEditUserOpen] = useState(false)
 
     return (

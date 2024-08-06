@@ -14,6 +14,6 @@ router.post("/email", checkEmail)
 router.post("/password", checkPassword)
 router.get("/user-details", userDetails)
 router.get("/logout", logout)
-router.patch("/update-user", updateUserDetails)
+router.post("/update-user", updateUserDetails)
 
 module.exports =  router

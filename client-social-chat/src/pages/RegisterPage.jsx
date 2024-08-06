@@ -21,7 +21,6 @@ const RegisterPage = () => {
   const handleUploadPhoto = async (e) => {
     let file = e.target.files[0]
     const uploadPhoto = await uploadFile(file)
-    console.log(uploadPhoto?.url, "upload photo url in handleUploadPhoto methd");
     setUploadPhoto(file)
     setData((prev)=>{
       return{

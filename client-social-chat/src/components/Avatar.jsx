@@ -33,7 +33,6 @@ const Avatar = ({ userId, name, imageUrl, width, height }) => {
         "bg-violet-200",        
     ]
     const num = Math.floor(Math.random()*bgColor.length)
-    console.log(num, "num in bg color .length");
     return (
         <div className= {`text-slate-800 overflow-hidden rounded-full shadow-2xl flex items-center justify-center border-2 text-2xl font-bold ${bgColor[num]} `} style={{ width: width+"px", height: height+"px" }}>
             {imageUrl ? (
