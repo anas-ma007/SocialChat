@@ -1,15 +1,17 @@
-import  { useEffect } from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Outlet, useLoaderData, useLocation, useNavigate } from 'react-router-dom'
 import { BACKEND_URL } from '../utils/constants'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, setUser } from '../redux/userSlice'
 import SiderBar from '../components/SiderBar'
+import logo from "../assets/Logo crop.jpeg"
 
 const Home = () => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const location = useLocation()
 
 
   const user = useSelector(state => state.user)
@@ -40,15 +42,26 @@ const Home = () => {
     fetchUserDetails()
   }, [])
 
+
+  console.log(location, "location in home");
+
+  const basePath = location.pathname === "/"
   return (
-    <div className='grid grid-cols-[320px,1fr] h-screen max-h-screen' >
-      <section className='bg-white'>
-        <SiderBar/>
+    <div className='grid lg:grid-cols-[320px,1fr] h-screen max-h-screen' >
+      <section className={`bg-white ${!basePath && "hidden"} lg:block `}>
+        <SiderBar />
       </section>
       {/* message component  */}
-      <section>
+      <section className={`${basePath && "hidden"}`}>
         <Outlet />
+        <div className='flex justify-center items-center flex-col'>
+          <div>
+            <img src={logo} width={200} alt="logo" />
+          </div>
+          <p className=''>Select user to send message</p>
+        </div>
       </section>
+
     </div>
   )
 }

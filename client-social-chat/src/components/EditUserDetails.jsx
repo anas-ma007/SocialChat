@@ -77,6 +77,7 @@ const EditUserDetails = ({ user, onClose }) => {
       toast.success(response.data.message)
       if(response.data.success){
         dispatch(setUser(response.data.data))
+        onClose()
       }
     } catch (error) {
       console.log(error, "error");
