@@ -11,12 +11,6 @@ app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 app.use(cookiesParser())
 
-let a= {}
-if(!a){
-    console.log("log a");
-} else {
-    console.log("a with value");
-}
 
 
 app.use(cors({
@@ -24,9 +18,7 @@ app.use(cors({
     credentials: true
 }))
 
-app.get("/", (req, res) => {
-    res.send("hii its a get method")
-})
+
 
 //api end point
 app.use("/api", router)

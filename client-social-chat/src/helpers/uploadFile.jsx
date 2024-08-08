@@ -6,7 +6,6 @@ const url = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/auto/uploa
 
 const uploadFile = async (file) => {
     const formData = new FormData()
-    // console.log(formData, "formdata log");
     formData.append("file", file)
     formData.append("upload_preset", "SocialChat-file")
 

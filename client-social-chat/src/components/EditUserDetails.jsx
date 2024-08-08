@@ -73,7 +73,6 @@ const EditUserDetails = ({ user, onClose }) => {
         withCredentails : true
       })
       
-      console.log(response,"response");
       toast.success(response.data.message)
       if(response.data.success){
         dispatch(setUser(response.data.data))

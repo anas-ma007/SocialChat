@@ -43,7 +43,6 @@ const CheckPassword = () => {
     e.preventDefault()
     e.stopPropagation()
     const URL = `${BACKEND_URL}/api/password`
-    console.log(URL, "URL log");
     try {
       const response = await axios({
         method: "post",

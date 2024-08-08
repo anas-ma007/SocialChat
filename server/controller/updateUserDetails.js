@@ -7,7 +7,6 @@ const updateUserDetails = async (req, res) => {
         const token = req.cookies.token || ''
         const user = await getUserDetailsFromToken(token)
         const { name, profile_pic } = req.body
-        // console.log(user, "user log in update user method");
         const updateUser = await UserModel.updateOne({ _id: user._id }, {
             name, 
             profile_pic,

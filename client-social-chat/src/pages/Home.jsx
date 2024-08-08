@@ -15,7 +15,6 @@ const Home = () => {
 
 
   const user = useSelector(state => state.user)
-  // console.log(user, "user from home page use selector");
 
   const fetchUserDetails = async () => {
     try {
@@ -31,7 +30,6 @@ const Home = () => {
         dispatch(logout())
         navigate("/email")
       }
-      // console.log(response?.data?.data, "login user details in home page get user details method");
 
     } catch (error) {
       console.log("Error in Home fetchUser details", error);
@@ -43,7 +41,6 @@ const Home = () => {
   }, [])
 
 
-  console.log(location, "location in home");
 
   const basePath = location.pathname === "/"
   return (
