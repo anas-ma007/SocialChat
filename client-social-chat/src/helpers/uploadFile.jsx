@@ -2,7 +2,7 @@ import { CLOUDINARY_CLOUD_NAME } from "../utils/constants";
 
 
 
-const url = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/auto/upload`  //I think here the "auto" is for all kind of data or media, means photos images..etc. not sure, need to check once again
+const url = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/auto/upload`  //The "auto" is for all kind of data or media, means photos images..etc. not sure, need to check once again
 
 const uploadFile = async (file) => {
     const formData = new FormData()
