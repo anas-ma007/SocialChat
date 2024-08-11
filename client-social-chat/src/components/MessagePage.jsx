@@ -2,9 +2,11 @@ import React from 'react'
 
 const MessagePage = () => {
   return (
-    <div>
-      MessagePage
-    </div>
+    <>
+      <div>
+        MessagePage
+      </div>
+    </>
   )
 }
 
