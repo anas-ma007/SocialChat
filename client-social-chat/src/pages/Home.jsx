@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Outlet, useLoaderData, useLocation, useNavigate } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { BACKEND_URL } from '../utils/constants'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
@@ -12,7 +12,6 @@ const Home = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const location = useLocation()
-
 
   const user = useSelector(state => state.user)
 
@@ -30,7 +29,6 @@ const Home = () => {
         dispatch(logout())
         navigate("/email")
       }
-
     } catch (error) {
       console.log("Error in Home fetchUser details", error);
     }
@@ -40,12 +38,11 @@ const Home = () => {
     fetchUserDetails()
   }, [])
 
-
-
   const basePath = location.pathname === "/"
+
   return (
     <div className='grid lg:grid-cols-[320px,1fr] h-screen max-h-screen' >
-      <section className={`bg-white ${!basePath && "hidden"} lg:block `}>
+      <section className={`bg-white ${!basePath && "hidden"} lg:block`}>
         <SiderBar />
       </section>
       {/* message component  */}
