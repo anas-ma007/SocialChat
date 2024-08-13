@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { BACKEND_URL } from '../utils/constants'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, setUser } from '../redux/userSlice'
