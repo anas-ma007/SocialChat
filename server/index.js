@@ -11,18 +11,13 @@ app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 app.use(cookiesParser())
 
-
-
 app.use(cors({
     origin: process.env.FRONTEND_URL,
     credentials: true
 }))
 
-
-
 //api end point
 app.use("/api", router)
-
 
 const port = process.env.PORT || 3000
 
