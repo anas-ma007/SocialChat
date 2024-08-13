@@ -4,8 +4,8 @@ import { BACKEND_URL } from '../utils/constants'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, setUser } from '../redux/userSlice'
-import SiderBar from '../components/SiderBar'
 import logo from "../assets/Logo crop.jpeg"
+import SiderBar from '../components/SiderBar'
 
 const Home = () => {
 
