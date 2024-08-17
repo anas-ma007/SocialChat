@@ -1,7 +1,6 @@
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast';
-// import toast, { Toaster } from 'react-hot-toast';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 const App = () => {
   return (
