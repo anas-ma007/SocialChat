@@ -3,7 +3,7 @@ const UserModel = require("../models/userModel")
 const checkEmail = async (req, res) => {
     try {
         const { email } = req.body
-        const checkUserExist = await UserModel.findOne({ email }).select("-password") // "select -password" - to avoid send the password field to frontend
+        const checkUserExist = await UserModel.findOne({ email }).select("-password") 
 
         if (!checkUserExist) {
             return res.status(400).json({
